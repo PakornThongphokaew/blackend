@@ -1,0 +1,142 @@
+
+body, html {
+    height: 100%;
+    font-family: 'Kanit', cursive !important;
+    font-size: 0.95rem !important;
+}
+.bg {
+    background: #3498db;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0% 80%);
+}
+.w-60p{
+    width: 60px !important;
+}
+.w-90p{
+    width: 90px !important;
+}
+.w-150p{
+    width: 150px !important;
+} */
+
+.canvas{
+    height: 300px!important;
+}
+.toggle.ios, .toggle-on.ios, .toggle-off.ios { 
+    border-radius: 20px; 
+    font-weight: 100px;
+}
+.toggle.ios .toggle-handle { 
+    border-radius: 20px; 
+}
+.toggle-on.btn {
+    padding-right: 19px;
+    font-weight: 100 !important;
+}
+.btn {
+    font-size: inherit !important;
+}
+
+.card, .small-box, .small-box-footer{
+    border-radius: 15px !important;
+}
+.small-box h1{
+    font-size: 2rem !important;
+}
+
+.rtl{
+    direction: rtl !important;
+}
+
+
+    /* The switch - โค้ดสำหรับสไตล์ของสวิตช์ */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    /* The slider - สไลด์เดอร์ของสวิตช์ */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+
+
+
+
+@media (max-width: 1400px) {
+    .table-responsive-xxl {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .table-responsive-xxl > .table-bordered {
+      border: 0;
+    }
+    #orders .detail{
+        width: 300px !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    .small-box h1 {
+        font-size: 1.7rem !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .small-box h1 {
+        font-size: 1.4rem !important;
+    }
+}
+
+
