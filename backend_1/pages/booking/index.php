@@ -69,62 +69,83 @@ require_once('../authen.php');
 
     <script>
         $(function() {
-            $.ajax({
-                type: "GET",
-                url: "../../service/booking/index.php"
-            }).done(function(data) {
-                let tableData = []
-                data.response.forEach(function(item, index) {
-                    tableData.push([
-                        ++index,
-                        item.booking_id,
-                        item.booking_timestamp,
-                        item.booking_date,
-                        item.booking_paystatus,
-                        item.booking_price,
-                        item.booking_status,
-                 
-                    ])
-                })
-                initDataTables(tableData)
-            }).fail(function() {
-                Swal.fire({
-                    text: 'ไม่สามารถเรียกดูข้อมูลได้',
-                    icon: 'error',
-                    confirmButtonText: 'ตกลง',
-                }).then(function() {
-                    location.assign('../dashboard')
-                })
-            })
-
-            function initDataTables(tableData) {
-                $('#logs').DataTable({
-                    data: tableData,
-                    columns: [{
-                        title: "ลำดับ",className: "align-middle"},
-                        {title: "รหัสการจองซุ้ม",className: "align-middle"},
-                        {title: "วัน-เวลา ที่จอง",className: "align-middle"},
-                        {title: "วัน-เวลา ที่เข้าใช้บริการ",className: "align-middle"}, 
-                        {title: "การมัดจำ",className: "align-middle" },
-                        {title: "ราคามัดจำ",className: "align-middle"},
-                        {title: "สถานะการเข้าใช้บริการ",className: "align-middle"}
-                    ],
-                    language: {
-                        "lengthMenu": "แสดงข้อมูล _MENU_ แถว",
-                        "zeroRecords": "ไม่พบข้อมูลที่ต้องการ",
-                        "info": "แสดงหน้า _PAGE_ จาก _PAGES_",
-                        "infoEmpty": "ไม่พบข้อมูลที่ต้องการ",
-                        "infoFiltered": "(filtered from _MAX_ total records)",
-                        "search": 'ค้นหา',
-                        "paginate": {
-                            "previous": "ก่อนหน้านี้",
-                            "next": "หน้าต่อไป"
-                        }
-                    }
-                })
-            }
-
+    $.ajax({
+        type: "GET",
+        url: "../../service/booking/index.php"
+    }).done(function(data) {
+        let tableData = []
+        data.response.forEach(function(item, index) {
+            let payStatus = (item.booking_paystatus == 1) ? 'มัดจำแล้ว' : 'ยังไม่มัดจำ';
+            tableData.push([
+                ++index,
+                item.booking_id,
+                item.booking_timestamp,
+                item.booking_date,
+                payStatus, // เปลี่ยนเป็นสถานะการจ่ายเงินตามเงื่อนไข
+                item.booking_price,
+                item.booking_status
+            ])
         })
+        initDataTables(tableData)
+    }).fail(function() {
+        Swal.fire({
+            text: 'ไม่สามารถเรียกดูข้อมูลได้',
+            icon: 'error',
+            confirmButtonText: 'ตกลง',
+        }).then(function() {
+            location.assign('../dashboard')
+        })
+    })
+
+    function initDataTables(tableData) {
+        $('#logs').DataTable({
+            data: tableData,
+            columns: [{
+                    title: "ลำดับ",
+                    className: "align-middle"
+                },
+                {
+                    title: "รหัสการจองซุ้ม",
+                    className: "align-middle"
+                },
+                {
+                    title: "วัน-เวลา ที่จอง",
+                    className: "align-middle"
+                },
+                {
+                    title: "วัน-เวลา ที่เข้าใช้บริการ",
+                    className: "align-middle"
+                },
+                {
+                    title: "การมัดจำ",
+                    className: "align-middle"
+                },
+                {
+                    title: "ราคามัดจำ",
+                    className: "align-middle"
+                },
+                {
+                    title: "สถานะการเข้าใช้บริการ",
+                    className: "align-middle"
+                }
+            ],
+            language: {
+                "lengthMenu": "แสดงข้อมูล _MENU_ แถว",
+                "zeroRecords": "ไม่พบข้อมูลที่ต้องการ",
+                "info": "แสดงหน้า _PAGE_ จาก _PAGES_",
+                "infoEmpty": "ไม่พบข้อมูลที่ต้องการ",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "search": 'ค้นหา',
+                "paginate": {
+                    "previous": "ก่อนหน้านี้",
+                    "next": "หน้าต่อไป"
+                }
+            }
+        })
+    }
+
+})
+
     </script>
 </body>
 

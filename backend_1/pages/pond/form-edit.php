@@ -115,21 +115,16 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
         });
 
         $(function() {
-            $('#formData').submit(function(e) {
-                e.preventDefault();
-                $.ajax({
-                    type: 'PUT',
-                    url: '../../service/pond/update.php',
-                    contentType: 'application/json', // เพิ่ม content type เป็น JSON
-                    data: JSON.stringify({
-                        pond_name: $('#pond_name').val(),
-                        pond_image: $('#pond_image').val(),
-                        pond_size: $('#pond_size').val(),
-                        pond_detail: $('#pond_detail').val(),
-                        pond_rodprice: $('#pond_rodprice').val(),
-                        pond_id: $('#pond_id').val(),
-                    })
-                }).done(function(resp) {
+        $('#formData').submit(function(e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                type: 'POST', // เปลี่ยนเป็น POST ตามการใช้งานของฟอร์ม
+                url: '../../service/pond/update.php',
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function(resp) {
                     Swal.fire({
                         text: 'อัพเดทข้อมูลเรียบร้อย',
                         icon: 'success',
@@ -137,9 +132,18 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
                     }).then((result) => {
                         location.assign('./');
                     });
-                });
+                },
+                error: function(err) {
+                    console.error(err);
+                    Swal.fire({
+                        text: 'มีข้อผิดพลาดเกิดขึ้น',
+                        icon: 'error',
+                        confirmButtonText: 'ตกลง',
+                    });
+                }
             });
         });
+    });
 
     </script>
 
