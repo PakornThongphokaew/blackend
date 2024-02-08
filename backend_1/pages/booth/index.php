@@ -105,29 +105,13 @@ require_once('../authen.php');
             function initDataTables(tableData) {
                 $('#logs').DataTable({
                     data: tableData,
-                    columns: [{
-                        title: "ลำดับ",
-                            className: "align-middle"},
-                        {
-                            title: "รหัสซุ้ม",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "ชื่อบ่อ",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "ชื่อซุ้ม",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "รูปภาพซุ้ม",
-                            className: "align-middle"
-                        }, 
-                        {
-                            title: "ปุ่มลบ แก้ไข",
-                            className: "align-middle"
-                        }
+                    columns: [
+                        {title: "ลำดับ",className: "align-middle"},
+                        {title: "รหัสซุ้ม",className: "align-middle"},
+                        {title: "ชื่อบ่อ",className: "align-middle"},
+                        {title: "ชื่อซุ้ม",className: "align-middle"},
+                        {title: "รูปภาพซุ้ม",className: "align-middle"}, 
+                        {title: "ปุ่มลบ แก้ไข",className: "align-middle"}
                     ],
                     initComplete: function() {
                         $(document).on('click', '#delete', function() {

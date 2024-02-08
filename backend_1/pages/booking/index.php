@@ -100,34 +100,14 @@ require_once('../authen.php');
     function initDataTables(tableData) {
         $('#logs').DataTable({
             data: tableData,
-            columns: [{
-                    title: "ลำดับ",
-                    className: "align-middle"
-                },
-                {
-                    title: "รหัสการจองซุ้ม",
-                    className: "align-middle"
-                },
-                {
-                    title: "วัน-เวลา ที่จอง",
-                    className: "align-middle"
-                },
-                {
-                    title: "วัน-เวลา ที่เข้าใช้บริการ",
-                    className: "align-middle"
-                },
-                {
-                    title: "การมัดจำ",
-                    className: "align-middle"
-                },
-                {
-                    title: "ราคามัดจำ",
-                    className: "align-middle"
-                },
-                {
-                    title: "สถานะการเข้าใช้บริการ",
-                    className: "align-middle"
-                }
+            columns: [
+                {title: "ลำดับ",className: "align-middle"},
+                {title: "รหัสการจองซุ้ม",className: "align-middle"},
+                {title: "วัน-เวลา ที่จอง",className: "align-middle"},
+                {title: "วัน-เวลา ที่เข้าใช้บริการ",className: "align-middle"},
+                {title: "การมัดจำ",className: "align-middle"},
+                {title: "ราคามัดจำ",className: "align-middle"},
+                {title: "สถานะการเข้าใช้บริการ",className: "align-middle"}
             ],
             language: {
                 "lengthMenu": "แสดงข้อมูล _MENU_ แถว",

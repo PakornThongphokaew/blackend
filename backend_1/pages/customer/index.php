@@ -106,38 +106,15 @@ require_once('../authen.php');
             function initDataTables(tableData) {
                 $('#logs').DataTable({
                     data: tableData,
-                    columns: [{
-                            title: "ลำดับแถว",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "ลำดับลูกค้า",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "อีเมล",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "รหัสผ่าน",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "ชื่อ-นามสกุล",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "เบอร์โทร",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "ที่อยู่",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "ปุ่มลบ แก้ไข",
-                            className: "align-middle"
-                        }
+                    columns: [
+                        {title: "ลำดับแถว",className: "align-middle"},
+                        {title: "ลำดับลูกค้า",className: "align-middle"},
+                        {title: "อีเมล",className: "align-middle"},
+                        {title: "รหัสผ่าน",className: "align-middle"},
+                        {title: "ชื่อ-นามสกุล",className: "align-middle"},
+                        {title: "เบอร์โทร",className: "align-middle"},
+                        {title: "ที่อยู่",className: "align-middle"},
+                        {title: "ปุ่มลบ แก้ไข",className: "align-middle"}
                     ],
                     initComplete: function() {
                         $(document).on('click', '#delete', function() {

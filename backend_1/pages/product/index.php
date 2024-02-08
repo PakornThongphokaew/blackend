@@ -108,42 +108,16 @@ require_once('../authen.php');
             function initDataTables(tableData) {
                 $('#logs').DataTable({
                     data: tableData,
-                    columns: [{
-                            title: "ลำดับ",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "รหัสสินค้า",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "ชื่อสินค้าย่อย",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "ชื่อสินค้า",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "ราคาสินค้า",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "รูปสินค้า",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "จำนวนสินค้า",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "รายละเอียดสินค้า",
-                            className: "align-middle"
-                        },
-                        {
-                            title: "ปุ่มลบ แก้ไข",
-                            className: "align-middle"
-                        }
+                    columns: [
+                        {title: "ลำดับ",className: "align-middle"},
+                        {title: "รหัสสินค้า",className: "align-middle"},
+                        {title: "ชื่อสินค้าย่อย",className: "align-middle"},
+                        {title: "ชื่อสินค้า",className: "align-middle"},
+                        {title: "ราคาสินค้า",className: "align-middle"},
+                        {title: "รูปสินค้า",className: "align-middle"},
+                        {title: "จำนวนสินค้า",className: "align-middle"},
+                        {title: "รายละเอียดสินค้า",className: "align-middle"},
+                        {title: "ปุ่มลบ แก้ไข",className: "align-middle"}
                     ],
                     initComplete: function() {
                         $(document).on('click', '#delete', function() {
