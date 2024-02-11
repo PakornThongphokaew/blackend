@@ -5,7 +5,10 @@
 
 <?php
     #process
-    $sql = "SELECT * FROM booking";
+    $sql = "SELECT booking.*, customer.cus_fullname, customer.cus_tel
+    FROM booking
+    JOIN customer ON booking.cus_no = customer.cus_no";
+
     
     $stmt = $conn->prepare($sql);
     $stmt->execute();

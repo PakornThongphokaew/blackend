@@ -75,15 +75,14 @@ require_once('../authen.php');
     }).done(function(data) {
         let tableData = []
         data.response.forEach(function(item, index) {
-            let payStatus = (item.booking_paystatus == 1) ? 'มัดจำแล้ว' : 'ยังไม่มัดจำ';
+            let payStatus = (item.booking_paystatus == 1) ? 'มัดจำแล้ว' : ''; // กำหนดเงื่อนไขสถานะการจ่ายเงิน
             tableData.push([
                 ++index,
                 item.booking_id,
-                item.booking_timestamp,
+                item.cus_fullname,
+                item.cus_tel,
                 item.booking_date,
-                payStatus, // เปลี่ยนเป็นสถานะการจ่ายเงินตามเงื่อนไข
-                item.booking_price,
-                item.booking_status
+                payStatus // เปลี่ยนเป็นสถานะการจ่ายเงินตามเงื่อนไข
             ])
         })
         initDataTables(tableData)
@@ -103,11 +102,10 @@ require_once('../authen.php');
             columns: [
                 {title: "ลำดับ",className: "align-middle"},
                 {title: "รหัสการจองซุ้ม",className: "align-middle"},
+                {title: "ชื่อลูกค้า",className: "align-middle"},
+                {title: "เบอร์โทร",className: "align-middle"},
                 {title: "วัน-เวลา ที่จอง",className: "align-middle"},
-                {title: "วัน-เวลา ที่เข้าใช้บริการ",className: "align-middle"},
-                {title: "การมัดจำ",className: "align-middle"},
-                {title: "ราคามัดจำ",className: "align-middle"},
-                {title: "สถานะการเข้าใช้บริการ",className: "align-middle"}
+                {title: "สถานะการมัดจำ",className: "align-middle"} 
             ],
             language: {
                 "lengthMenu": "แสดงข้อมูล _MENU_ แถว",

@@ -29,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         $pond_id = $_POST['pond_id'];
-        $booth_id = $_POST['booth_id'];
         $booth_name = $_POST['booth_name'];
         $booth_image = $imagePath; // Updated variable assignment
 
@@ -49,11 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
 
-        $sql = "INSERT INTO booth (booth_id, booth_name, booth_image, pond_id) 
-                VALUES (:booth_id, :booth_name, :booth_image, :pond_id)";
+        $sql = "INSERT INTO booth (booth_name, booth_image, pond_id) 
+                VALUES (:booth_name, :booth_image, :pond_id)";
 
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(":booth_id", $booth_id, PDO::PARAM_STR);
         $stmt->bindParam(":booth_name", $booth_name, PDO::PARAM_STR);
         $stmt->bindParam(":booth_image", $booth_image, PDO::PARAM_STR);
         $stmt->bindParam(":pond_id", $pond_id, PDO::PARAM_STR);

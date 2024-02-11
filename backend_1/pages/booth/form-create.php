@@ -43,10 +43,6 @@ require_once('../authen.php');
                                     <div class="card-body">
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <label for="booth_id">รหัสซุ้ม</label>
-                                                <input type="text" class="form-control" name="booth_id" id="booth_id" placeholder="รหัสซุ้ม" required>
-                                            </div>
-                                            <div class="form-group col-md-12">
                                                 <label for="booth_name">ชื่อซุ้ม</label>
                                                 <input type="text" class="form-control" name="booth_name" id="booth_name" placeholder="ชื่อซุ้ม" required>
                                             </div>

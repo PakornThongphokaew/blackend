@@ -42,10 +42,6 @@ require_once('../authen.php');
                                         <div class="row">
                                             <div class="col-md-12 px-1 px-md-5">
                                                 <div class="form-group">
-                                                    <label for="product_id">รหัสสินค้า</label>
-                                                    <input type="text" class="form-control" name="product_id" id="product_id" placeholder="รหัสสินค้า" required>
-                                                </div>
-                                                <div class="form-group">
                                                     <label for="product_name">ชื่อสินค้า</label>
                                                     <input type="text" class="form-control" name="product_name" id="product_name" placeholder="ชื่อสินค้า" required>
                                                 </div>
